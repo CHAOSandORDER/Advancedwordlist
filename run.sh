@@ -1,15 +1,8 @@
 #!/bin/bash
 
-mkdir x
-
-chmod +x c.py
-chmod +x r.sh
 chmod +x f.sh
 ./f.sh
 rm f.sh
-cd x
-chmod +x m.py
-cd ..
 clear
 
 echo "
@@ -19,42 +12,59 @@ echo "
 /_/ |_/____/|___/_/ |_/_/|_/\___/___/____/   |__/|__/\____/_/|_/____/____/___/___/ /_/    
                                                                                           "
 
+# create new or modify
+
+echo -n "
+	(1) CREATE NEW WORDLIST
+	(2) MODIFY EXISTING
+
+	SELECT 1 OR 2 : "
+read s
+
+if [ $s -eq 1 ]
+
+then
+	    
 # run_cupp.py
 
-python3 c.py -i
+	python3 c.py -i
 
 # run_mentalist
 
-echo -n " 
-Do you want to create a more advanced wordlist? 1(Y) or 2(NO) :"
-read t
+	echo -n " 
+	Do you want to create a more advanced wordlist? 1(Y) or 2(NO) :"
+	read t
 
-if [ $t -eq 1 ]
+	if [ $t -eq 1 ]
+
+	then
+
+		cd x
+		mentalist	
+	
+	
+	fi
+
+	if [ $t -eq 2 ]
+
+	then
+		mkdir /root/Desktop/Awordlist
+		mv *.txt /root/Desktop/Awordlist
+		exit
+	
+	
+	fi
+
+fi
+
+if [ $s -eq 2 ]
 
 then
 
 	cd x
+	mentalist
 
-	python3 m.py install
-
-	mentalist	
-	
-	
 fi
-
-if [ $t -eq 2 ]
-
-then
-	mkdir /root/Desktop/Awordlist
-	mv *.txt /root/Desktop/Awordlist
-	exit
-	
-	
-fi
-
-# gnome-terminal -- "./r.sh"
-
-
 
 
 
