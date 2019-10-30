@@ -33,10 +33,8 @@ then
 
 # run_mentalist
 
-	echo -n " 
-	Do you want to create a more advanced wordlist? 1(Y) or 2(NO) :"
-	read t
-
+	read -p " Do you want to create a more advanced wordlist? 1(Y) or 2(NO) :" t
+	
 	if [ $t -eq 1 ]
 
 	then
